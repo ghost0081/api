@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <!-- Form content -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+<body>
+    <div class="container">
+        <h1>Survey Form</h1>
+        <form action="/submit" method="post" enctype="multipart/form-data">
+            <!-- Form Inputs -->
+            <div class="form-section">
+                <label for="apMainCode">AP Main Code:</label>
+                <input type="text" id="apMainCode" name="apMainCode" required>
+            </div>
+            <div class="form-section">
+                <label for="apName">AP Name:</label>
+                <input type="text" id="apName" name="apName" required>
+            </div>
+            <div class="form-section">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-section">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div class="form-section">
+                <label for="visitSpoc">Visit SPOC:</label>
+                <input type="text" id="visitSpoc" name="visitSpoc" required>
+            </div>
+            <div class="form-section">
+                <label for="modeOfAudit">Mode Of Audit:</label>
+                <input type="text" id="modeOfAudit" name="modeOfAudit" required>
+            </div>
+            <div class="form-section">
+                <label for="noOfEmployees">No Of Employees:</label>
+                <input type="number" id="noOfEmployees" name="noOfEmployees" required>
+            </div>
+            <div class="form-section">
+                <label for="noOfClientMappedToAp">No Of Client Mapped to AP:</label>
+                <input type="number" id="noOfClientMappedToAp" name="noOfClientMappedToAp" required>
+            </div>
+
+            <!-- User Table Section -->
+            <div class="form-section">
+                <h2>User Information</h2>
+                <table id="valueTable">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>User Name</th>
+                            <th>Segment</th>
+                            <th>Approved Address</th>
+                            <th>Actual Located At</th>
+                            <th>Remarks</th>
+                            <th>Authorized Person Reply</th>
+                            <th>Evidence</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="userId[]" required></td>
+                            <td><input type="text" name="userName[]" required></td>
+                            <td><input type="text" name="segment[]" required></td>
+                            <td><input type="text" name="approvedAddress[]" required></td>
+                            <td><input type="text" name="actualLocatedAt[]" required></td>
+                            <td><input type="text" name="remarks[]" required></td>
+                            <td><input type="text" name="authorizedPersonReply[]" required></td>
+                            <td><input type="file" name="evidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-row-btn">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" id="addRowBtn">Add Row</button>
+            </div>
+
+            <!-- List Of Boards Table Section -->
+            <div class="form-section">
+                <h2>List Of Boards</h2>
+                <table id="boardTable">
+                    <thead>
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>List Of Boards</th>
+                            <th>Yes/No</th>
+                            <th>Remarks</th>
+                            <th>Authorized Person Reply</th>
+                            <th>Evidence</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Main display board with words franchisee</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Notice board of the trading Member containing all details / information prescribed from time to time, are displayed at the AP location</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>SEBI registration certificate of the trading Member and registration letter issued by the Exchange is displayed at location</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Message of investor alert</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>AP registration certificate - BSE / NSE / MCX / NCDEX</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Message for investor (Do's & Don'ts)</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Message for investor Rights & Responsibilities</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Investor Charter</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Grievance Redressal Mechanism (SEBI circular CIR/MIRSD/3/2014 dated August 28, 2014)</td>
+                            <td><input type="text" name="yesNo[]"></td>
+                            <td><input type="text" name="boardRemarks[]"></td>
+                            <td><input type="text" name="boardAuthorizedPersonReply[]"></td>
+                            <td><input type="file" name="boardEvidence[]" accept="image/*"></td>
+                            <td><button type="button" class="remove-board-row-btn">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

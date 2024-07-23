@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Survey Form Results</h1>
+
+    <h2>Form Data</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>AP Main Code</td>
+                <td>{{ formData['apMainCode'] }}</td>
+            </tr>
+            <tr>
+                <td>AP Name</td>
+                <td>{{ formData['apName'] }}</td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td>{{ formData['date'] }}</td>
+            </tr>
+            <tr>
+                <td>Location</td>
+                <td>{{ formData['location'] }}</td>
+            </tr>
+            <tr>
+                <td>Visit SPOC</td>
+                <td>{{ formData['visitSpoc'] }}</td>
+            </tr>
+            <tr>
+                <td>Mode Of Audit</td>
+                <td>{{ formData['modeOfAudit'] }}</td>
+            </tr>
+            <tr>
+                <td>No Of Employees</td>
+                <td>{{ formData['noOfEmployees'] }}</td>
+            </tr>
+            <tr>
+                <td>No Of Client Mapped to AP</td>
+                <td>{{ formData['noOfClientMappedToAp'] }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Table 1: User Information</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>Segment</th>
+                <th>Approved Address</th>
+                <th>Actual Located At</th>
+                <th>Remarks</th>
+                <th>Authorized Person Reply</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in userTableData %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Table 2: List Of Boards</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sr No.</th>
+                <th>List Of Boards</th>
+                <th>Yes/No</th>
+                <th>Remarks</th>
+                <th>Authorized Person Reply</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in boardTableData %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
